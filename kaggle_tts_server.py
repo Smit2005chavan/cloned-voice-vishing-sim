@@ -82,10 +82,8 @@ NGROK_API_KEY = ""
 # (measured: a 13-word reply as 1.7s of audio, ~460 wpm vs normal ~150).
 # v3 (also 14s) had the same latent bug. Staying under 12s avoids the
 # auto-crop entirely, so ref_text and ref_audio stay matched.
-REF_AUDIO = "/kaggle/input/datasets/smitchavan/voice-clone-v5/reference_voice_v5.wav" if _is_kaggle else "reference_voice_v5.wav"
-REF_TEXT  = ("Solutions, they have functionalities more or less same. So the most important "
-             "differentiator should be that how do they orchestrate and how do they interact "
-             "with other solutions.")
+REF_AUDIO = "" if _is_kaggle else ""
+REF_TEXT  = ("")
 
 # The /synthesize loop swallows per-sentence exceptions (so one bad sentence
 # doesn't kill the whole reply), which also means a wrong mount path would
