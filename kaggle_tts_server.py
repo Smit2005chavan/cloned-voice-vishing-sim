@@ -61,14 +61,14 @@ from pydantic import BaseModel
 import uvicorn
 from pyngrok import ngrok
 
-RELAY_KEY = "smitvoice2026"  # matches TTS_RELAY_KEY in local .env
-NGROK_AUTHTOKEN = "3GREsUT09qdW2haWzBML6lVff2C_4LXWrs76rJzjvrYsKRt4m"
+RELAY_KEY = ""  # matches TTS_RELAY_KEY in local .env
+NGROK_AUTHTOKEN = ""
 # Separate from NGROK_AUTHTOKEN above -- this is an *API key*, which is the
 # only credential that can list/stop OTHER agent sessions on your account
 # (the authtoken only authenticates this one agent). Get one free at
 # https://dashboard.ngrok.com/api-keys -- "New API Key". Leave blank to skip
 # auto-cleanup and fall back to just killing the local agent + retrying.
-NGROK_API_KEY = "3GREYbPeHIDT4uLEUBdYDLqGWWz_3wYmxf9rieUXnZ3xQzyQk"
+NGROK_API_KEY = ""
 
 # v5 reference clip -- same fluent source segment as v4, trimmed to 11.1s
 # (was 14.8s). CRITICAL FIX: F5-TTS's preprocess_ref_audio_text() silently
