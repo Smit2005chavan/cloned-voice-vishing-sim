@@ -1,0 +1,40 @@
+# Shared by ai_voice_demo.py / ai_voice_demo_kaggle.py / ai_voice_demo_local.py
+fastapi==0.139.0
+uvicorn==0.50.2
+httpx==0.28.1
+deepgram-sdk==3.1.8
+google-generativeai==0.8.6
+twilio==9.10.9
+pyngrok==8.1.2
+librosa==0.11.0
+numpy==2.4.6
+soundfile==0.14.0
+audioop-lts==0.2.2
+
+# launch_kaggle_relay.py only -- pushes/starts kaggle_tts_server.py via the
+# Kaggle API instead of pasting it into the notebook UI by hand.
+kaggle==2.2.3
+
+# Local in-process voice cloning (ai_voice_demo_local.py only).
+# Left unpinned so pip resolves current macOS arm64 wheels -- versions used
+# elsewhere in this project were resolved for a different OS/accelerator.
+# After a successful install, capture what actually landed with:
+#   pip freeze > requirements-lock-mac.txt
+torch
+torchaudio
+f5-tts
+
+# ── Mac setup notes (ai_voice_demo_local.py) ──────────────────────────
+# - Recommend a Python 3.11 venv for this script specifically -- F5-TTS's
+#   dependency chain (transformers, x_transformers, torchdiffeq, vocos,
+#   hydra-core) is far more proven on 3.11 than on very new Python versions.
+# - brew install ffmpeg -- model.infer(..., remove_silence=True) uses
+#   pydub, which shells out to ffmpeg on $PATH. If that's a blocker, set
+#   remove_silence=False in ai_voice_demo_local.py's _synthesize_sentence_sync
+#   (small quality trade-off, not a functional blocker).
+# - xcode-select --install -- cheap insurance in case any transitive
+#   dependency needs to build from source.
+# - f5-tts pulls a large dependency tree (gradio, transformers, accelerate,
+#   torchcodec, etc.) -- expect a slow, multi-GB install, plus a multi-GB
+#   model-weight download from Hugging Face on first run.
+# - macOS 12.3+ required for the "mps" GPU backend.
