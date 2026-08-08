@@ -9,9 +9,9 @@
 import os, subprocess, sys, time
 import httpx
 
-KERNEL_REF = "smitchavan/tts-relay-server"
+KERNEL_REF = ""
 # Must match NGROK_API_KEY in kaggle_tts_server.py.
-NGROK_API_KEY = "3GREYbPeHIDT4uLEUBdYDLqGWWz_3wYmxf9rieUXnZ3xQzyQk"
+NGROK_API_KEY = ""
 ENV_PATH = ".env"
 POLL_SECONDS = 10
 KERNEL_START_TIMEOUT = 900   # GPU queueing can take a few minutes
