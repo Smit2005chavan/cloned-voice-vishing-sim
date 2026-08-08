@@ -21,7 +21,7 @@ TUNNEL_TIMEOUT = 1500        # pip installs + torch reinstall + model load + war
 # kaggle CLI otherwise opens files with the system codepage (cp1252) instead
 # of UTF-8 and chokes on them ('charmap' codec can't decode byte ...).
 # PYTHONUTF8=1 forces UTF-8 for all of Python's default text-mode file opens.
-_ENV = {**os.environ, "PYTHONUTF8": "1", "KAGGLE_API_TOKEN": "KGAT_557a4b093e10ece2ecb3465a05fa3659"}
+_ENV = {**os.environ, "PYTHONUTF8": "1", "KAGGLE_API_TOKEN": ""}
 
 
 def delete_stale_kernel():
