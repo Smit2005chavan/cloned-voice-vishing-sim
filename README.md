@@ -26,7 +26,7 @@ The system is organised into three zones:
 
 Each conversational turn: caller speaks → Deepgram transcribes → Groq generates an in-character reply → F5-TTS synthesizes it in the cloned voice → played back over Twilio → logged. End-to-end turn latency: ~1.5–2.5s.
 
-Full architecture diagram and engineering write-up (latency optimizations, persona design, bug fixes) are in [`/docs`](./docs).
+Full engineering write-up (latency optimizations, the GPU-relay design, and how the conversation logic was bounded) is in [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md).
 
 ## Tech Stack
 
@@ -34,12 +34,11 @@ Full architecture diagram and engineering write-up (latency optimizations, perso
 
 ## What's in This Repo
 
-- System architecture and data-flow documentation
-- Latency benchmarking and optimization notes
-- Non-sensitive orchestration scaffolding (server setup, logging, WebSocket handling)
-- Test results and methodology
+- System architecture and engineering write-up: [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md) — pipeline design, the GPU-relay tradeoff, latency breakdown, and how the conversation logic was kept bounded
+- Test results and methodology (below, and in the architecture doc)
+- A non-functional config stub: [`config.example.py`](./config.example.py)
 
-**Redacted / not included:** the persona system prompt, live call-trigger logic, and voice-cloning configuration have been removed or replaced with placeholder stubs (see `config.example.py`). This repo is meant to demonstrate the engineering, not to be a ready-to-run vishing tool.
+**Not included, on purpose:** the live call-trigger script, the full persona/system prompt, the voice-cloning pipeline code, and any setup guide that would make this runnable. This repo documents the engineering and results of an authorised internal exercise — it is not a ready-to-run vishing tool, and never was meant to be distributed as one.
 
 ## Ethical Use & Scope
 
